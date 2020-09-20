@@ -1,12 +1,91 @@
+/* 
+  color and font info: 
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500&family=Nunito:ital@1&display=swap" rel="stylesheet">
+font-family: 'Grenze Gotisch', cursive;
+font-family: 'Nunito', sans-serif;
+DarkCyan
+#008B8B
+Khaki
+#F0E68C
+LightCoral
+#F08080
+MidnightBlue
+#191970
+
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+  font-size: 0.9rem
+}
+
 .App {
   font-family: "Raleway";
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
   align-items: center;
+  justify-content: center;
+}
+
+.dropContainer {
+  width: 100%;
+  text-align: center;
 }
 
 .dashHeader {
-  position: relative;
   background: #efeffb;
   width: 100%;
   text-align: center;
@@ -45,10 +124,9 @@ select {
 }
 
 .card {
-  position: relative;
   background: #fef9f9;
-  width: 25em;
-  margin: 2em;
+  width: 20em;
+  margin: 1em;
   padding: 0.7em;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border: 10px solid lightcoral;
@@ -65,7 +143,7 @@ select {
 }
 
 .cardButton {
-  transform: translateX(30em);
+
   text-align: center;
   left: 0px;
   margin-top: 1em;
