@@ -13,8 +13,11 @@ export default function SignUp() {
   
     const handleSubmit = (event) => {
       console.log(`
+        FirstName: ${firstName}
+        Lastname: ${lastName}
         Email: ${email}
         Password: ${password}
+
   
       `);
   
