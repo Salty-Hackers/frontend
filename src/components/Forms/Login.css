@@ -1,21 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500&family=Nunito:ital@1&display=swap');
 
-body{
-  /* background:darkcyan; */
-  background: linear-gradient(100deg, #fcfae8 30%,    #d8cf7e 100%);
-  /* font-family: 'Grenze Gotisch', cursive; */
-}
-
-html{
-  font-size: 100%;
-}
-
 #loginform{
-
-  width: 30%;
-  height: 60%;
+  background: linear-gradient(100deg, #fcfae8 70%,    #f9f5d1 90%);
+  width: 50%;
+  height: 80%;
   margin: 150px auto;
-  background-color: #FFFFFF;
+  background-color:#fcfae8;
   border-radius: 25px;
   padding: 6rem;
   text-align: center;
@@ -60,15 +50,15 @@ input:focus{
 
 
 button{
-  border-radius: 25px;
+  border-radius: 10px;
   width: 80%;
   height: 40px;
   font-size: 1.3rem;
   margin-top: 3.2rem;
   color: white;
   font-weight: 700;
-  background:lightcoral;
-  background: linear-gradient(90deg, lightcoral 0%,   midnightblue  100%);
+  background:darkcyan;
+  background: linear-gradient(90deg, darkcyan 0%,   midnightblue  100%);
   border: 0px;
   cursor: pointer;
   transition: opacity 0.25s ease-out;
