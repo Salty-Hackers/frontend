@@ -28,7 +28,7 @@ export default function SignUp() {
         <h1>Create Account</h1>
 
         <label>
-          <p>First Name</p>
+          <p>Enter First Name:</p>
           <input
             name="firstName"
             type="name"
@@ -38,7 +38,7 @@ export default function SignUp() {
         </label>
 
         <label>
-          <p>Last Name</p>
+          <p>Enter Last Name:</p>
           <input
             name="lastName"
             type="name"
