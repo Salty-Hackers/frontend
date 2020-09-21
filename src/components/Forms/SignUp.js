@@ -1,9 +1,10 @@
 import React from 'react'
 import './Login.css'
-
-
+import { useSignup } from "../contexts/UserContext";
 
 export default function SignUp() {
+    const signup = useSignup()
+
     const [firstName, setFirstName] = React.useState("");
     const[lastName, setLastName] = React.useState("");
     const [email, setEmail] = React.useState("");
@@ -19,6 +20,8 @@ export default function SignUp() {
       `);
   
       event.preventDefault();
+
+      signup(firstName, lastName, email, password)
     }
   
     return (
