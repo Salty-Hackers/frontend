@@ -10,9 +10,15 @@ export const useLogin = () => {
   return useContext(LoginContext);
 };
 
+<<<<<<< HEAD
 export const useSignup = () => {
   return useContext(SignupContext);
 };
+=======
+export function UserProvider({ children }) {
+  const [user, setUser] = useState({ email: "", comments: ""});
+  let history = useHistory();
+>>>>>>> eaad629... login working, token stored in local storage
 
 export const UserProvider = ({ children }) => {
   let user = { id: "", email: "", firstName: "", lastName: "" };
@@ -24,6 +30,7 @@ export const UserProvider = ({ children }) => {
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
+<<<<<<< HEAD
         localStorage.setItem("firstName", res.data.user.firstName);
         localStorage.setItem("lastName", res.data.user.lastName);
         localStorage.setItem("id", res.data.user.id);
@@ -45,6 +52,12 @@ export const UserProvider = ({ children }) => {
       .then((res) => console.log(res))
       .catch(err => (console.log(err)))
   };
+=======
+        history.push('/');
+        
+      });
+  }
+>>>>>>> eaad629... login working, token stored in local storage
 
   return (
     <UserContext.Provider value={user}>
