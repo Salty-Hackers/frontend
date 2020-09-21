@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(80deg, #fcfae8 70%,    #e8e4bd 100%);
+  background: linear-gradient(80deg, #fcfae8 20%,    whitesmoke 100%);
   width: 90%;
   height: 70%;
   margin: 150px auto;
