@@ -29,6 +29,7 @@ export default function SignUp() {
       
       <form onSubmit={handleSubmit} id="loginform">
         <h1>Create Account</h1>
+       <br></br>
 
         <label>
           <p>Enter First Name:</p>
@@ -51,7 +52,7 @@ export default function SignUp() {
         </label>
   
         <label>
-          <p>Email:</p>
+          <p>Enter Email:</p>
           <input
             name="email"
             type="email"

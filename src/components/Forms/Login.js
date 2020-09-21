@@ -54,43 +54,38 @@ export default function Login() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} id="loginform">
-        <h1>Log In</h1>
+   
+    <form onSubmit={handleSubmit} id="loginform">
+      <h1>Log In</h1>
 
-        <label>
-          <p> Email:</p>
-          <input
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => {
-              validate("email", e.target.value);
-              setEmail(e.target.value);
-            }}
-          />
-          {/* Validation Error */}
-          {formErrors.email}
-          <br></br>
-        </label>
+      <label>
+       <p>Email:</p>
+       <br/>
+        <input
+          name="email"
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required />
+      </label>
 
-        <label>
-          <p>Password:</p>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => {
-              validate("password", e.target.value);
-              setPassword(e.target.value);
-            }}
-          />
-          {/* Validation Error */}
-          {formErrors.password}
-          <br></br>
-        </label>
+      <label>
+        <p>Password:</p>
+        <input
+          name="password"
+          type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required />
+      </label>
 
-        <button disabled={disabled}>Submit</button>
-      </form>
+     
+
+
+      <button>Submit</button>
+    </form>
+    
+
     </>
   );
 }
