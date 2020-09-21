@@ -1,91 +1,80 @@
 import React from 'react'
+import { useState } from 'react'
 import './Login.css'
 
 
+function SignUp() {
+  const [user, setUser] = useState({ 
+    firstName: "", 
+    lastName: "", 
+    email:"", 
+    password: "", 
+    confirmPassword: ""
+   });
 
-export default function SignUp() {
-    const [firstName, setFirstName] = React.useState("");
-    const[lastName, setLastName] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
-    const [newPassword, reSetPassword] = React.useState("");
-  
-  
-    const handleSubmit = (event) => {
-      console.log(`
-        FirstName: ${firstName}
-        Lastname: ${lastName}
-        Email: ${email}
-        Password: ${password}
+  const handleChange = event => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+  };
 
-  
-      `);
-  
-      event.preventDefault();
-    }
-  
-    return (
-        <>
-      
-      <form onSubmit={handleSubmit} id="loginform">
-        <h1>Create Account</h1>
-       <br></br>
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(user.firstName);
+    console.log(user.lastName);
+    console.log(user.email);
+    console.log(user.password);
+    console.log(user.confirmPassword);
+  };
 
+  return (
+    <div className="logIn">
+      {console.log(user)}
+      <form onSubmit={event => handleSubmit(event)} id ="loginform">
         <label>
-          <p>Enter First Name:</p>
+         <p> Enter First Name:</p>
           <input
-            name="firstName"
-            type="name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required />
-        </label>
-
-        <label>
-          <p>Enter Last Name:</p>
-          <input
-            name="lastName"
-            type="name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required />
-        </label>
-  
-        <label>
-          <p>Enter Email:</p>
-          <input
-            name="email"
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required />
-        </label>
-  
-        <label>
-          <p>Create Password:</p>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required />
-        </label>
-        <label>
-          <p>Re-enter Password:</p>
-          <input
-            name="newPassword"
-            type="password"
-            id="confirm"
-            value={newPassword}
-            onChange={(e) => reSetPassword(e.target.value)}
-            required
+            type="text"
+            name="name"
+            onChange={event => handleChange(event)}
           />
         </label>
-
-  
-        <button>Submit</button>
+        <label>
+          Enter Last Name:
+          <input
+            type="text"
+            name="name"
+            onChange={event => handleChange(event)}
+          />
+          </label>
+           <label>
+        Email:
+          <input
+            type="text"
+            name="email"
+            onChange={event => handleChange(event)}
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            name="password"
+            onChange={event => handleChange(event)}
+          />
+       
+        </label>
+        <label>
+          Re-enter Password:
+          <input
+            type="password"
+            name="confirmPassword"
+            onChange={event => handleChange(event)}
+          />
+        </label>
+        <button>Submit!</button>
       </form>
-   
-     </>
-    );
-  }
+    </div>
+  );
+}
+
+export default SignUp;
+  
