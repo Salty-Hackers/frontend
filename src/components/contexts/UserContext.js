@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { useHistory } from "react-router-dom";
 
 const UserContext = React.createContext();
 const LoginContext = React.createContext();
@@ -9,13 +10,17 @@ export function useLogin() {
 }
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useState({ email: "", comments: "", token: "" });
+  const [user, setUser] = useState({ email: "", comments: ""});
+  let history = useHistory();
 
   function login(email, password) {
     return axiosWithAuth()
-      .post("/api/auth/login", { email: email, password: password })
+      .post("/api/auth/login", { email, password })
       .then((res) => {
         console.log(res);
+        localStorage.setItem("token", res.data.token);
+        history.push('/');
+        
       });
   }
 
