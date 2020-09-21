@@ -4,6 +4,8 @@ import './Login.css'
 
 
 export default function SignUp() {
+    const [firstName, setFirstName] = React.useState("");
+    const[lastName, setLastName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [newPassword, reSetPassword] = React.useState("");
@@ -24,6 +26,26 @@ export default function SignUp() {
       
       <form onSubmit={handleSubmit} id="loginform">
         <h1>Create Account</h1>
+
+        <label>
+          <p>First Name</p>
+          <input
+            name="firstName"
+            type="name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required />
+        </label>
+
+        <label>
+          <p>Last Name</p>
+          <input
+            name="lastName"
+            type="name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required />
+        </label>
   
         <label>
           <p>Email:</p>
@@ -55,9 +77,7 @@ export default function SignUp() {
             required
           />
         </label>
-  
-       
-  
+
   
         <button>Submit</button>
       </form>

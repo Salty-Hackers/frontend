@@ -2,7 +2,7 @@
 
 body{
   /* background:darkcyan; */
-  background: linear-gradient(100deg, midnightblue 30%,    #0a0a2c 100%);
+  background: linear-gradient(100deg, #fcfae8 30%,    #d8cf7e 100%);
   /* font-family: 'Grenze Gotisch', cursive; */
 }
 
@@ -67,8 +67,8 @@ button{
   margin-top: 3.2rem;
   color: white;
   font-weight: 700;
-  background:midnightblue;
-  background: linear-gradient(90deg, midnightblue 0%,    darkcyan   100%);
+  background:lightcoral;
+  background: linear-gradient(90deg, lightcoral 0%,   midnightblue  100%);
   border: 0px;
   cursor: pointer;
   transition: opacity 0.25s ease-out;
