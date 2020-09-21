@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { useContext } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
@@ -11,15 +11,9 @@ export const useLogin = () => {
   return useContext(LoginContext);
 };
 
-<<<<<<< HEAD
 export const useSignup = () => {
   return useContext(SignupContext);
 };
-=======
-export function UserProvider({ children }) {
-  const [user, setUser] = useState({ email: "", comments: ""});
-  let history = useHistory();
->>>>>>> eaad629... login working, token stored in local storage
 
 export const UserProvider = ({ children }) => {
   let user = { id: "", email: "", firstName: "", lastName: "" };
@@ -31,7 +25,6 @@ export const UserProvider = ({ children }) => {
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
-<<<<<<< HEAD
         localStorage.setItem("firstName", res.data.user.firstName);
         localStorage.setItem("lastName", res.data.user.lastName);
         localStorage.setItem("id", res.data.user.id);
@@ -53,12 +46,6 @@ export const UserProvider = ({ children }) => {
       .then((res) => console.log(res))
       .catch(err => (console.log(err)))
   };
-=======
-        history.push('/');
-        
-      });
-  }
->>>>>>> eaad629... login working, token stored in local storage
 
   return (
     <UserContext.Provider value={user}>
@@ -70,32 +57,3 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
-=======
-import React, { useState, useContext } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-
-const UserContext = React.createContext();
-const LoginContext = React.createContext();
-
-export function useLogin() {
-  return useContext(LoginContext);
-}
-
-export function UserProvider({ children }) {
-  const [user, setUser] = useState({ email: "", comments: "", token: "" });
-
-  function login(email, password) {
-    return axiosWithAuth()
-      .post("/api/auth/login", { email: email, password: password })
-      .then((res) => {
-        console.log(res);
-      });
-  }
-
-  return (
-    <UserContext.Provider value={user}>
-      <LoginContext.Provider value={login}>{children}</LoginContext.Provider>
-    </UserContext.Provider>
-  );
-}
->>>>>>> 6fce8658e1961718ff2866b22be1cdd99e718d11
