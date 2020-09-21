@@ -2,7 +2,7 @@ import React from "react";
 import "./Login.css";
 import * as yup from "yup";
 import schema from "./validate-login.js";
-
+import { useLogin } from "../contexts/UserContext";
 const initialFormErrors = {
   email: "",
   password: "",
@@ -10,7 +10,7 @@ const initialFormErrors = {
 const initialDisabled = true;
 
 export default function Login() {
-  //const login = useLogin();
+  const login = useLogin();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -21,6 +21,7 @@ export default function Login() {
     `);
 
     event.preventDefault();
+    login(email, password);
   };
 
   // Validation - TLTsay
@@ -43,13 +44,13 @@ export default function Login() {
 
   React.useEffect(() => {
     schema.isValid(email).then((valid) => {
-      setDisabled(!valid);
+      setDisabled(false);
     });
   }, [email]);
 
   React.useEffect(() => {
     schema.isValid(password).then((valid) => {
-      setDisabled(!valid);
+      setDisabled(false);
     });
   }, [password]);
 
