@@ -17,10 +17,8 @@ export function UserProvider({ children }) {
     return axiosWithAuth()
       .post("/api/auth/login", { email, password })
       .then((res) => {
-        console.log(res);
         localStorage.setItem("token", res.data.token);
-        history.push('/');
-        
+        history.push("/");
       });
   }
 
