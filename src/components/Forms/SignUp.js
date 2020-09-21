@@ -6,6 +6,7 @@ import './Login.css'
 export default function SignUp() {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [newPassword, reSetPassword] = React.useState("");
   
   
     const handleSubmit = (event) => {
@@ -43,16 +44,17 @@ export default function SignUp() {
             onChange={e => setPassword(e.target.value)}
             required />
         </label>
-
         <label>
-        <p>Re-enter Password:</p>
-        <input
-          name="password"
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required />
-      </label>
+          <p>Re-enter Password:</p>
+          <input
+            name="newPassword"
+            type="password"
+            id="confirm"
+            value={newPassword}
+            onChange={(e) => reSetPassword(e.target.value)}
+            required
+          />
+        </label>
   
        
   
