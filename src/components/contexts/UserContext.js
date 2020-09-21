@@ -30,7 +30,8 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("email", res.data.user.email);
 
         history.push("/");
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   const signup = (firstName, lastName, email, password) => {
