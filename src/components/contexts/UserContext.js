@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("lastName", res.data.user.lastName);
         localStorage.setItem("id", res.data.user.id);
         localStorage.setItem("email", res.data.user.email);
-
+ 
         history.push("/");
       })
       .catch((err) => console.log(err));
@@ -43,8 +43,11 @@ export const UserProvider = ({ children }) => {
         email,
         password,
       })
-      .then((res) => console.log(res))
-      .catch(err => (console.log(err)))
+      .then((res) => {
+        console.log(res);
+        history.push("/");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
