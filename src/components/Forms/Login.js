@@ -90,7 +90,7 @@ export default function Login() {
           <br></br>
         </label>
 
-        <button>Submit</button>
+        <button disabled={disabled}>Submit</button>
       </form>
     </>
   );
