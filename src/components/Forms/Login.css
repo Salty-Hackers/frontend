@@ -1,33 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500&family=Nunito:ital@1&display=swap');
 
 #loginform{
-  background: linear-gradient(100deg, #fcfae8 70%,    #f9f5d1 90%);
-  width: 50%;
-  height: 80%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(80deg, #fcfae8 70%,    #e8e4bd 100%);
+  width: 90%;
+  height: 70%;
   margin: 150px auto;
   background-color:#fcfae8;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 6rem;
   text-align: center;
   color: midnightblue;
-  font-family: 'Nunito', sans-serif
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
 }
 
 
 
 
-input{
-  width: 80%;
+label{
+  flex-wrap: wrap;
+  width: 90%;
   box-sizing: border-box;
-    border: none;
-    text-align:center;
-  font-size: 1.3rem;
-  padding-left: 1rem;
-  padding-bottom: .5rem;
-  box-shadow: inset 0px -3px 0px 0px rgba(187,187,187,0.2);
-  transition: box-shadow 0.2s ease-in;
+  border: none;
+  text-align:center;
+  font-size: 1rem;
+  transition: box-shadow 0.6s ease-in;
   text-align: center;
   font-family: 'Nunito', sans-serif;
+  opacity: .9;
 }
 
 input:focus{
@@ -37,38 +41,45 @@ input:focus{
 
 
 
- label{
-  align-self: center;
-  text-align: center;
-  /* padding: 4.5rem; */
-  padding-bottom: 2rem;
-  /* margin-bottom: 2rem; */
-  color: rgba(187,187,187,0.9);
+ input{
+  width: 100%;
+  align-items: center;
+  margin: 1rem;
+  margin-right: .4;
+  padding-bottom: .5rem;
+  color:midnightblue;
   font-family: 'Nunito', sans-serif;
+  transition: box-shadow 0.2s ease-in;
+  border: none;
+
+  box-shadow: inset 0px -3px 0px 0px rgba(187,187,187,0.2);
 }
 
 
 
 button{
-  border-radius: 10px;
+  border-radius: 8px;
+  align-self: center;
   width: 80%;
   height: 40px;
-  font-size: 1.3rem;
-  margin-top: 3.2rem;
+  font-size: 1rem;
+  margin-top: 1.9rem;
   color: white;
   font-weight: 700;
   background:darkcyan;
-  background: linear-gradient(90deg, darkcyan 0%,   midnightblue  100%);
+  background: linear-gradient(90deg,  midnightblue 0%,  darkcyan  100%);
   border: 0px;
   cursor: pointer;
-  transition: opacity 0.25s ease-out;
+  transition: opacity 0.45s ease-out;
   font-family: 'Nunito', sans-serif
 }
 
 button:hover{
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
-#button{
-  padding-bottom: 1.2rem;
+h1{
+  font-size: 2rem;
+  font-weight: bold;
+  
 }

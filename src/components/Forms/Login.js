@@ -25,7 +25,8 @@ export default function Login() {
       <h1>Log In</h1>
 
       <label>
-       <p> Email:</p>
+       <p>Email:</p>
+       <br/>
         <input
           name="email"
           type="email"
