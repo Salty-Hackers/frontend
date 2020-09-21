@@ -72,10 +72,10 @@ export default function Login() {
             }}
             required
           />
-          {formErrors.email}
-          <br></br>
-        </label>
 
+        </label>
+        <div className="form-errors">{formErrors.email}</div>
+        <br />
         <label>
           <p>Password:</p>
           <input
@@ -88,10 +88,11 @@ export default function Login() {
             }}
             required
           />
-          {formErrors.password}
-          <br></br>
-        </label>
 
+        </label>
+        
+        <div className="form-errors">{formErrors.password}</div>
+          <br />
         <button disabled={disabled}>Submit</button>
       </form>
     </>
