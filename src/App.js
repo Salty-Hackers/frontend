@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
+import React from "react";
+
 import "./App.css";
-import "./components/Forms/Login.js";
-import "./components/Forms/SignUp.js";
+import { UserProvider } from "./components/contexts/UserContext";
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import Login from "./components/Forms/Login";
 
 function App() {
   return (
-    <div className="App">
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Sign Up</Link>
-        <Route path="/login"></Route>
-        <Route path="/signup"></Route>
-      </nav>
-      <Switch>
-        <Route exact path="/" component={Dashboard} />
-      </Switch>
-    </div>
+    <Router>
+      <UserProvider>
+        <div className="App">
+          <h1>Saltiest Hacker</h1>
+        </div>
+
+        <Route path="/login">
+          <Login />
+        </Route>
+      </UserProvider>
+    </Router>
   );
 }
 

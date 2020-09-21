@@ -1,10 +1,12 @@
 import React from "react";
 import './Login.css'
 
+import { useLogin } from "../contexts/UserContext";
 
 
 
 export default function Login() {
+  const login = useLogin();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -14,8 +16,9 @@ export default function Login() {
       Email: ${email}
       Password: ${password}
     `);
-
+    
     event.preventDefault();
+    login(email, password);
   }
 
   return (
