@@ -70,8 +70,14 @@ button{
   background: linear-gradient(90deg,  midnightblue 0%,  darkcyan  100%);
   border: 0px;
   cursor: pointer;
-  transition: opacity 0.45s ease-out;
-  font-family: 'Nunito', sans-serif
+  transition: opacity 0.65s ease-in;
+  font-family: 'Nunito', sans-serif;
+ 
+}
+button:disabled {
+ opacity: 0.2;
+ cursor: not-allowed;
+
 }
 
 button:hover{
