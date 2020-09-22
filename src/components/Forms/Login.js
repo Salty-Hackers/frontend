@@ -1,5 +1,5 @@
 import React from "react";
-import "./Login.css";
+import "./Form.css";
 import * as yup from "yup";
 import schema from "./validate-login.js";
 
@@ -14,11 +14,10 @@ export default function Login() {
   const [password, setPassword] = React.useState("");
 
   const handleSubmit = (event) => {
-    console.log(`
-    Email: ${email}
-    Password: ${password}
-    `);
-
+    // console.log(`
+    // Email: ${email}
+    // Password: ${password}
+    // `);
     event.preventDefault();
   };
 

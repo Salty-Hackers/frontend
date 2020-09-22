@@ -16,8 +16,8 @@ export default yup.object().shape({
     .min(8, "Password must be 8 characters or longer.")
     .matches(/a-zA-Z0-9/, "Password can only contain letters and numbers."),
 
-  newPassword: yup
+  confirmPassword: yup
     .string()
     .required("Password confirmation is required.")
-    .oneOf([Yup.ref("password"), null], "Passwords must match."),
+    .oneOf([yup.ref("password"), null], "Passwords must match."),
 });
