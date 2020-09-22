@@ -5,8 +5,13 @@ import { useParams } from "react-router-dom";
 // 1. Render the users saves
 // 2. Allow the user to delete saved cards
 
+import { useComments } from "./contexts/UserContext";
+
 function UserProfile() {
     let { id } = useParams();
+    const getComments = useComments();
+
+    console.log(getComments);
     // need to make a axios call to render the users saved cards
     // need to make a delete function to delete saved cards
 
