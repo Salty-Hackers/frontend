@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Comment(props) {
   const { comment } = props;
@@ -10,7 +11,7 @@ function Comment(props) {
       <br />
       Salt Level: {comment.negativity}
       <br />
-      User: {comment.user_id}
+      User: <Link to={`/user/${comment.user_id}`}>{comment.user_id}</Link>
       <br />
       <br />
       <br />
