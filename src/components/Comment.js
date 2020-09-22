@@ -5,8 +5,13 @@ function Comment(props) {
   return (
     <div>
       Comment ID: {comment.id}
+      <br />
       Comment: {comment.comment}
+      <br />
       Salt Level: {comment.negativity}
+      <br />
+      User: {comment.user_id}
+      <br />
       <br />
       <br />
     </div>
