@@ -12,6 +12,7 @@ function Comment(props) {
       Salt Level: {comment.negativity}
       <br />
       User: <Link to={`/user/${comment.user_id}`}>{comment.user_id}</Link>
+      <hr />
       <br />
       <br />
       <br />
