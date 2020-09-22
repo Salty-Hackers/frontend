@@ -19,5 +19,8 @@ export default Yup.object().shape({
 
   confirmPassword: Yup.string()
     .required("Password confirmation is required.")
-    .oneOf([Yup.ref("firstName"), null], "Passwords must match."),
+    .when("password", {
+      is: password => (password && password.length > 0 ? true : false),
+      then: Yup.string().oneOf([Yup.ref("password")], "Password doesn't match")
+    })
 });
