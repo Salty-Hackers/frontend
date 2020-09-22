@@ -72,10 +72,10 @@ button{
   cursor: pointer;
   transition: opacity 0.65s ease-in;
   font-family: 'Nunito', sans-serif;
+ 
 }
-
-.disabled {
- opacity: 0.6;
+button:disabled {
+ opacity: 0.2;
  cursor: not-allowed;
 
 }
