@@ -2,8 +2,12 @@ import React from 'react'
 import { useState } from 'react'
 import "./Login.css";
 
+import { useSignup } from "../contexts/UserContext";
 
 function SignUp() {
+
+  const signup = useSignup();
+
   const [user, setUser] = useState({ 
     firstName: "", 
     lastName: "", 
@@ -18,6 +22,7 @@ function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    signup(user.firstName, user.lastName, user.email, user.password);
     console.log(user.firstName);
     console.log(user.lastName);
     console.log(user.email);
