@@ -10,8 +10,9 @@ import { useComments } from "./contexts/UserContext";
 function UserProfile() {
     let { id } = useParams();
     const getComments = useComments();
+    const userComments = getComments.filter(commentId => commentId === id)
 
-    console.log(getComments);
+
     // need to make a axios call to render the users saved cards
     // need to make a delete function to delete saved cards
 
@@ -21,6 +22,8 @@ function UserProfile() {
             <h1> Welcome to your Favorite Comments </h1>
             <h5> Here you can view and delete comment cards </h5>
             <p>User ID {id}</p>
+            {userComments.map(person =>
+                <p> {person.id} </p>)}
         </>
     )
 
