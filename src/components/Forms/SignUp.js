@@ -60,6 +60,7 @@ function SignUp() {
         setFormErrors({ ...formErrors, [name]: err.errors[0] });
       });
   };
+  
 
   useEffect(() => {
     schema.isValid(user).then((valid) => {
