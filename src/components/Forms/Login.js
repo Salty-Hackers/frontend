@@ -4,16 +4,21 @@ import "./Form.css";
 import * as yup from "yup";
 import schema from "./validate-login.js";
 import { useLogin } from "../contexts/UserContext";
+
+
+
 const initialFormErrors = {
   email: "",
   password: "",
 };
-const initialDisabled = true;
+
 
 export default function Login() {
   const login = useLogin();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  const initialDisabled = true;
 
   const handleSubmit = (event) => {
     // console.log(`
@@ -44,15 +49,17 @@ export default function Login() {
 
   React.useEffect(() => {
     schema.isValid(email).then((valid) => {
-      setDisabled(false);
+      setDisabled(!valid);
     });
   }, [email]);
 
   React.useEffect(() => {
     schema.isValid(password).then((valid) => {
-      setDisabled(false);
+      setDisabled(!valid);
     });
   }, [password]);
+
+ 
 
   return (
     <>
@@ -93,7 +100,7 @@ export default function Login() {
         
         <div className="form-errors">{formErrors.password}</div>
           <br />
-        <button disabled={disabled}>Submit</button>
+        <button disabled={disabled} >Submit</button>
 
         <label>
           <p>

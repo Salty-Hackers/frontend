@@ -5,6 +5,9 @@ import "./Form.css";
 import * as yup from "yup";
 import schema from "./validate-signup.js";
 import { useSignup } from "../contexts/UserContext";
+
+
+
 function SignUp() {
   const signup = useSignup();
   const [user, setUser] = useState({
@@ -63,6 +66,8 @@ function SignUp() {
       setDisabled(!valid);
     });
   }, [user]);
+
+  
 
   return (
     <div className="logIn">
@@ -132,7 +137,8 @@ function SignUp() {
           />
           {formErrors.confirmPassword}
         </label>
-        <button disabled={disabled}>Submit!</button>
+        <button disabled={disabled}
+          >Submit!</button>
       </form>
     </div>
   );
