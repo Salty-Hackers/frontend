@@ -8,38 +8,31 @@ import { useParams } from "react-router-dom";
 import { useComments } from "./contexts/UserContext";
 
 function UserProfile() {
-    let { id } = useParams();
- 
-    const [comment, setComment] = useState([])
-    const getComments = useComments();
-    
-    useEffect(() => {
-        setComment(getComments)  
-    }, [getComments])
+  let { id } = useParams();
 
+  const [comment, setComment] = useState([]);
+  const getComments = useComments();
 
-    
-    const result = comment.filter(com => com.user_id == id)
-    console.log(result)
+  useEffect(() => {
+    setComment(getComments);
+  }, [getComments]);
 
+  const result = comment.filter((com) => com.user_id == id);
+  console.log(result);
 
-    
+  // need to make a axios call to render the users saved cards
+  // need to make a delete function to delete saved cards
 
-
-    // need to make a axios call to render the users saved cards
-    // need to make a delete function to delete saved cards
-
-    // need to add mark-up and some styling
-    return (
-        <>
-            {/* <h1> Welcome to your Favorite Comments </h1>
+  // need to add mark-up and some styling
+  return (
+    <>
+      {/* <h1> Welcome to your Favorite Comments </h1>
             <h5> Here you can view and delete comment cards </h5>
             <p>User ID {id}</p>
             {userComments.map(person =>
                 <p> {person.id} </p>)} */}
-        </>
-    )
-
+    </>
+  );
 }
 
 export default UserProfile;
