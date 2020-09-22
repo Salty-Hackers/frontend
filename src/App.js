@@ -8,6 +8,8 @@ import Login from "./components/Forms/Login.js";
 import SignUp from "./components/Forms/SignUp.js";
 import { UserProvider } from "./components/contexts/UserContext";
 import PrivateRoute from "./components/PrivateRoute";
+import Comments from "./components/Comments";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         </nav>
         <Switch>
           <PrivateRoute exact path="/" component={Dashboard} />
+          <PrivateRoute exact path="/comments" component={Comments} />
+          <PrivateRoute exact path="/user/:id" component={UserProfile} />
         </Switch>
       </div>
     </UserProvider>
