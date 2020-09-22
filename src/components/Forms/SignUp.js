@@ -14,6 +14,7 @@ function SignUp() {
     confirmPassword: "",
   });
 
+
   const handleChange = (event) => {
     console.log(event.target);
     validate(event.target.name, event.target.value);
@@ -22,6 +23,7 @@ function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    signup(user.firstName, user.lastName, user.email, user.password);
     console.log(user.firstName);
     console.log(user.lastName);
     console.log(user.email);

@@ -253,3 +253,8 @@ select {
   background-color: #e42a2a;
   color: white;
 }
+
+.form-errors{
+  font-size: 1.2rem;
+  color: red;
+}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Form.css";
 import * as yup from "yup";
 import schema from "./validate-login.js";
-
+import { useLogin } from "../contexts/UserContext";
 const initialFormErrors = {
   email: "",
   password: "",
@@ -11,6 +11,7 @@ const initialFormErrors = {
 const initialDisabled = true;
 
 export default function Login() {
+  const login = useLogin();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -20,6 +21,7 @@ export default function Login() {
     // Password: ${password}
     // `);
     event.preventDefault();
+    login(email, password);
   };
 
   // Validation - TLTsay
@@ -42,13 +44,13 @@ export default function Login() {
 
   React.useEffect(() => {
     schema.isValid(email).then((valid) => {
-      setDisabled(!valid);
+      setDisabled(false);
     });
   }, [email]);
 
   React.useEffect(() => {
     schema.isValid(password).then((valid) => {
-      setDisabled(!valid);
+      setDisabled(false);
     });
   }, [password]);
 
@@ -70,10 +72,10 @@ export default function Login() {
             }}
             required
           />
-          {formErrors.email}
-          <br></br>
-        </label>
 
+        </label>
+        <div className="form-errors">{formErrors.email}</div>
+        <br />
         <label>
           <p>Password:</p>
           <input
@@ -86,10 +88,11 @@ export default function Login() {
             }}
             required
           />
-          {formErrors.password}
-          <br></br>
-        </label>
 
+        </label>
+        
+        <div className="form-errors">{formErrors.password}</div>
+          <br />
         <button disabled={disabled}>Submit</button>
 
         <label>
