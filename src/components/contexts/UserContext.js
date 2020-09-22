@@ -1,11 +1,12 @@
 
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 
 const UserContext = React.createContext();
 const LoginContext = React.createContext();
 const SignupContext = React.createContext();
+const CommentsContext = React.createContext();
 
 export const useLogin = () => {
   return useContext(LoginContext);
@@ -15,9 +16,15 @@ export const useSignup = () => {
   return useContext(SignupContext);
 };
 
+export const useComments = () => {
+  return useContext(CommentsContext);
+};
+
 export const UserProvider = ({ children }) => {
   let user = { id: "", email: "", firstName: "", lastName: "" };
+  const [comments, setComments] = useState([])
   let history = useHistory();
+
 
   const login = (email, password) => {
     return axiosWithAuth()
@@ -50,11 +57,23 @@ export const UserProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+    useEffect(() => {
+      axiosWithAuth()
+      .get('/api/comments')
+      .then(res => {
+        return setComments(res.data)
+      })
+      .catch(err => console.log(err))
+    }, [])
+
+
   return (
     <UserContext.Provider value={user}>
       <LoginContext.Provider value={login}>
         <SignupContext.Provider value={signup}>
+          <CommentsContext.Provider value={comments}>
           {children}
+          </CommentsContext.Provider>
         </SignupContext.Provider>
       </LoginContext.Provider>
     </UserContext.Provider>
