@@ -1,41 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import './Login.css'
-<<<<<<< HEAD
-import { useSignup } from "../contexts/UserContext";
-
-export default function SignUp() {
-    const signup = useSignup()
-
-    const [firstName, setFirstName] = React.useState("");
-    const[lastName, setLastName] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
-    const [newPassword, reSetPassword] = React.useState("");
-  
-  
-    const handleSubmit = (event) => {
-      console.log(`
-        FirstName: ${firstName}
-        Lastname: ${lastName}
-        Email: ${email}
-        Password: ${password}
-
-  
-      `);
-  
-      event.preventDefault();
-
-      signup(firstName, lastName, email, password)
-    }
-  
-    return (
-        <>
-      
-      <form onSubmit={handleSubmit} id="loginform">
-        <h1>Create Account</h1>
-       <br></br>
-=======
+import "./Login.css";
 
 
 function SignUp() {
@@ -51,7 +16,7 @@ function SignUp() {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log(user.firstName);
     console.log(user.lastName);
@@ -59,7 +24,6 @@ function SignUp() {
     console.log(user.password);
     console.log(user.confirmPassword);
   };
->>>>>>> e471dee0beb495f416c59d744d8dc792d2e9398f
 
   return (
     <div className="logIn">
@@ -113,4 +77,3 @@ function SignUp() {
 }
 
 export default SignUp;
-  
