@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import "./Form.css";
 import * as yup from "yup";
 import schema from "./validate-signup.js";
-
+import { useSignup } from "../contexts/UserContext";
 function SignUp() {
+  const signup = useSignup();
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
