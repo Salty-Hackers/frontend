@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Form.css";
 import * as yup from "yup";
 import schema from "./validate-login.js";
@@ -90,6 +91,14 @@ export default function Login() {
         </label>
 
         <button disabled={disabled}>Submit</button>
+
+        <label>
+          <p>
+            {" "}
+            <br></br> Don't have an account?{" "}
+          </p>
+          <Link to="/signup">Sign up here!</Link>
+        </label>
       </form>
     </>
   );

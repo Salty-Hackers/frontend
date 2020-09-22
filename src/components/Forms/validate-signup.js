@@ -3,7 +3,9 @@ import * as Yup from "yup";
 export default Yup.object().shape({
   firstName: Yup.string().required("First Name is required."),
 
-  lastName: Yup.string().required("Last Name is required."),
+  lastName: Yup.string()
+    .required("Last Name is required.")
+    .oneOf(["me", "you"], "must be me/you"),
 
   email: Yup.string()
     .required("Email is required.")
@@ -18,6 +20,6 @@ export default Yup.object().shape({
     ),
 
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match.")
-    .required("Password confirmation is required."),
+    .required("Password confirmation is required.")
+    .oneOf([Yup.ref("firstName"), null], "Passwords must match."),
 });

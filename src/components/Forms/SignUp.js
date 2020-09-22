@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Form.css";
 import * as yup from "yup";
@@ -62,8 +63,17 @@ function SignUp() {
 
   return (
     <div className="logIn">
-      {/* {console.log(user)} */}
       <form onSubmit={(event) => handleSubmit(event)} id="loginform">
+        <h1>Sign Up</h1>
+
+        <label>
+          <p> Already have an account? </p>
+          <br></br>
+          <Link to="/login">Login here!</Link>
+          <br></br>
+          <br></br>
+        </label>
+
         <label>
           <p> Enter First Name:</p>
           <input
