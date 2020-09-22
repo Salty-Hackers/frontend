@@ -1,23 +1,23 @@
-import * as yup from "yup";
+import * as Yup from "yup";
 
-export default yup.object().shape({
-  firstName: yup.string().required("First Name is required."),
+export default Yup.object().shape({
+  firstName: Yup.string().required("First Name is required."),
 
-  lastName: yup.string().required("Last Name is required."),
+  lastName: Yup.string().required("Last Name is required."),
 
-  email: yup
-    .string()
+  email: Yup.string()
     .required("Email is required.")
     .email("Must be a valid email."),
 
-  password: yup
-    .string()
+  password: Yup.string()
     .required("Password is required.")
     .min(8, "Password must be 8 characters or longer.")
-    .matches(/a-zA-Z0-9/, "Password can only contain letters and numbers."),
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
+      "Must Contain at least 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character from !@#$%^&*"
+    ),
 
-  confirmPassword: yup
-    .string()
-    .required("Password confirmation is required.")
-    .oneOf([yup.ref("password"), null], "Passwords must match."),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords must match.")
+    .required("Password confirmation is required."),
 });

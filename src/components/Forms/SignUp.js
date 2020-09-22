@@ -14,7 +14,7 @@ function SignUp() {
   });
 
   const handleChange = (event) => {
-    console.log(event);
+    console.log(event.target);
     validate(event.target.name, event.target.value);
     setUser({ ...user, [event.target.name]: event.target.value });
   };
@@ -68,7 +68,7 @@ function SignUp() {
           <p> Enter First Name:</p>
           <input
             type="text"
-            name="name"
+            name="firstName"
             value={user.firstName}
             onChange={(event) => handleChange(event)}
             maxLength="30"
@@ -79,7 +79,7 @@ function SignUp() {
           Enter Last Name:
           <input
             type="text"
-            name="name"
+            name="lastName"
             value={user.lastName}
             onChange={(event) => handleChange(event)}
             maxLength="30"
