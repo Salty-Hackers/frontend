@@ -49,13 +49,13 @@ export default function Login() {
 
   React.useEffect(() => {
     schema.isValid(email).then((valid) => {
-      setDisabled(!valid);
+      setDisabled(false);
     });
   }, [email]);
 
   React.useEffect(() => {
     schema.isValid(password).then((valid) => {
-      setDisabled(!valid);
+      setDisabled(false);
     });
   }, [password]);
 
