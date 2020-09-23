@@ -9,6 +9,7 @@ const SignupContext = React.createContext();
 const CommentsContext = React.createContext();
 const SaveCommentContext = React.createContext();
 const GetSavedCommentContext = React.createContext();
+const DeleteSavedCommentContext = React.createContext();
 
 export const useLogin = () => {
   return useContext(LoginContext);
@@ -30,13 +31,16 @@ export const useGetSavedCommentContext = () => {
   return useContext(GetSavedCommentContext);
 };
 
+export const useDeleteSavedComment = () => {
+  return useContext(DeleteSavedCommentContext);
+};
+
 export const UserProvider = ({ children }) => {
   let user = { id: "", email: "", firstName: "", lastName: "" };
-  const [comments, setComments] = useState([])
+  const [comments, setComments] = useState([]);
   const [savedComments, setSavedComments] = useState([]);
   let history = useHistory();
-
-
+  const [updated, setUpdated] = useState(false);
   const login = (email, password) => {
     return axiosWithAuth()
       .post("/api/auth/login", { email, password })
@@ -47,7 +51,7 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("lastName", res.data.user.lastName);
         localStorage.setItem("id", res.data.user.id);
         localStorage.setItem("email", res.data.user.email);
- 
+
         history.push("/");
       })
       .catch((err) => console.log(err));
@@ -68,28 +72,36 @@ export const UserProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-    useEffect(() => {
-      axiosWithAuth()
-      .get('/api/comments')
-      .then(res => {
-        return setComments(res.data)
+  const userID = localStorage.getItem("id");
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/api/comments")
+      .then((res) => {
+        return setComments(res.data);
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
 
-      const userID = localStorage.getItem("id");
-      axiosWithAuth()
-        .get(`/api/users/${userID}/favoritecomments`)
-        .then((res) => {
-          return setSavedComments(res.data.userFavoriteComments);
-        })
-        .catch((err) => console.log(err));
-    }, [])
+    axiosWithAuth()
+      .get(`/api/users/${userID}/favoritecomments`)
+      .then((res) => {
+        setUpdated(true);
+        return setSavedComments(res.data.userFavoriteComments);
+      })
+      .catch((err) => console.log(err));
+  }, [updated]);
 
-  const saveComment = (commentID) => {
-    axiosWithAuth().put(`/api/comments/${commentID}/favoritecomments`, true);
+  const saveComment = (data) => {
+    axiosWithAuth()
+      .post(`/api/users/${userID}/favoritecomments/${data.id}`, data)
+      .then(setUpdated(!updated));
   };
 
-  const getSavedComments = () => {};
+  const deleteComment = (data) => {
+    axiosWithAuth()
+      .delete(`/api/users/${userID}/favoritecomments/${data.id}`)
+      .then(setUpdated(!updated));
+  };
+
   return (
     <UserContext.Provider value={user}>
       <LoginContext.Provider value={login}>
@@ -97,7 +109,9 @@ export const UserProvider = ({ children }) => {
           <CommentsContext.Provider value={comments}>
             <SaveCommentContext.Provider value={saveComment}>
               <GetSavedCommentContext.Provider value={savedComments}>
-                {children}
+                <DeleteSavedCommentContext.Provider value={deleteComment}>
+                    {children}
+                </DeleteSavedCommentContext.Provider>
               </GetSavedCommentContext.Provider>
             </SaveCommentContext.Provider>
           </CommentsContext.Provider>

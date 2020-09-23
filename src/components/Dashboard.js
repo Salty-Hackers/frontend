@@ -1,31 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 
 import { useGetSavedCommentContext } from "./contexts/UserContext";
 
 
-
 function Dashboard() {
+  const [savedComments, setSavedComments] = useState([]);
   const getSavedComments = useGetSavedCommentContext();
 
-  console.log(getSavedComments);
-  // need to make axios function to populate the drop-down list or maybe change to a search bar instead ???
+  console.log(savedComments);
 
+  useEffect(() => {
+    setSavedComments(getSavedComments);
+  }, [getSavedComments]);
 
   return (
     <>
       <div className="dashHeader">
- 
-
         <h1> Saltiest Hacker </h1>
         <h5>
           Find the Hacker News most saltiest comments and save them to your
           profile. Choose to view all comments and pick your favorites, or get
           comments by the user of your choice!
-          </h5>
+        </h5>
       </div>
-      {getSavedComments.map(comments => {
-        return <Card comment={comments} />
+      {savedComments.map((comments) => {
+        return <Card key={comments.id} comment={comments} />;
       })}
     </>
   );
