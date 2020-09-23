@@ -73,7 +73,7 @@ export default function Login() {
             required
           />
         </label>
-        <div className="form-errors">{formErrors.email}</div>
+        <div id="form-errors" className="form-errors">{formErrors.email}</div>
         <br />
         <label>
           Password:
@@ -99,8 +99,9 @@ export default function Login() {
           <p>
             {" "}
             <br></br> Don't have an account?{" "}
+            <br></br>
           </p>
-          <Link to="/signup">Sign up here!</Link>
+          <Link id= "login-link" to="/signup">Sign up here!</Link>
         </label>
       </form>
     </>
