@@ -10,18 +10,18 @@ import { UserProvider } from "./components/contexts/UserContext";
 import PrivateRoute from "./components/PrivateRoute";
 import Comments from "./components/Comments";
 import UserProfile from "./components/UserProfile";
-
+import NavBar from "./components/NavBar";
 function App() {
   return (
     <UserProvider>
       <div className="App">
-
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <SignUp />
-          </Route>
+        <NavBar />
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
 
         <Switch>
           <PrivateRoute exact path="/" component={Dashboard} />
