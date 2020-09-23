@@ -153,7 +153,7 @@ body {
   font-size: 62.5%;
   font-size: 0.9rem;
   font-family: "Nunito", sans-serif;
-  background-color: #008b8b;
+  background-color: #e9e9fa;
 }
 
 .App {
@@ -164,13 +164,9 @@ body {
   justify-content: center;
 }
 
-.dropContainer {
-  width: 100%;
-  text-align: center;
-}
-
-.dashHeader {
-  background: #efeffb;
+.dashHeader,
+.commentHeader {
+  background: #d3d3f5;
   width: 100%;
   text-align: center;
   color: midnightblue;
@@ -186,6 +182,7 @@ body {
 
 h5 {
   margin: 1rem;
+  padding: 0em 20%;
   font-size: 1.2rem;
 }
 
@@ -194,18 +191,12 @@ h1 {
   color: midnightblue;
   font-size: 3rem;
   margin-bottom: 1rem;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
 }
 
 h3,
 p {
   display: inline;
-}
-
-select {
-  text-align: center;
-  width: 10em;
-  height: 3em;
-  margin: 1em;
 }
 
 .card {
@@ -214,9 +205,9 @@ select {
   margin: 1em;
   padding: 0.7em;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  border: 5px solid lightcoral;
+  border: 7px solid lightcoral;
   line-height: 1.3;
-  transition: ease-in-out 175ms;
+  transition: ease-in-out 200ms;
 }
 
 .card:hover {
@@ -228,25 +219,23 @@ select {
 }
 
 .cardButton {
-  text-align: center;
-  left: 0px;
+  transform: translateX(20em);
   margin-top: 1em;
   font-weight: bold;
   font-size: 0.7em;
   text-transform: uppercase;
   color: midnightblue;
   background: lightcoral;
-  width: 104px;
-  height: 40px;
+  width: 4em;
+  height: 4em;
   outline: none;
   border: 1px solid whitesmoke;
-  border-radius: 5px;
+  border-radius: 100px;
   transition: ease-in-out 175ms;
 }
 
 .cardButton:hover {
-  /* box-shadow: 0 1px 6px rgba(0, 0, 0, 0.19), 0 6px 8px rgba(0, 0, 0, 0.24); */
-  transform: scale(1.05);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.19), 0 6px 8px rgba(0, 0, 0, 0.24);
 }
 
 .cardButton:active {
@@ -254,7 +243,21 @@ select {
   color: white;
 }
 
-.form-errors{
+.form-errors {
   font-size: 1.2rem;
   color: red;
+}
+
+.commentHeader > h1 {
+  padding: 0.7em;
+  margin-bottom: 0em;
+}
+.commentHeader {
+  margin-bottom: 2em;
+}
+.commentContainer {
+  background: whitesmoke;
+  border: 10px solid lightcoral;
+  padding: 1em;
+  padding-top: 2em;
 }

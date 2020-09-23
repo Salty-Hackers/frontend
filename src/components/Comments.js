@@ -10,11 +10,16 @@ function Comments() {
 
   return (
     <div>
-      <h1>Comments Feed</h1>
 
-      {getComments.map((comment) => {
-        return <Comment key={comment.id} comment={comment} />;
-      })}
+      <div className='commentHeader'>
+        <h1>Comments Feed</h1>
+      </div>
+      <div className='commentContainer'>
+        {getComments.map((comment) => {
+          return <Comment key={comment.id} comment={comment} />;
+        })}
+
+      </div>
     </div>
   );
 }

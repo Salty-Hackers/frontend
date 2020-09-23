@@ -31,18 +31,7 @@ function Dashboard() {
           comments by the user of your choice!
           </h5>
       </div>
-      <div className="dropContainer">
-        <br />
-        <label htmlFor="items">Choose  </label>
 
-        <select className="personsDrop">
-          <option value="" disabled></option>
-          <option value="person-1">Person 1</option>
-          <option value="person-2">Person 2</option>
-          <option value="person-3">Person 3</option>
-          <option value="person-4">Person 4</option>
-        </select>
-      </div>
       <Card />
       <Card />
       <Card />
