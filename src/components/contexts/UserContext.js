@@ -33,6 +33,7 @@ export const useGetSavedCommentContext = () => {
 export const UserProvider = ({ children }) => {
   let user = { id: "", email: "", firstName: "", lastName: "" };
   const [comments, setComments] = useState([])
+  const [savedComments, setSavedComments] = useState([]);
   let history = useHistory();
 
 
@@ -74,23 +75,28 @@ export const UserProvider = ({ children }) => {
         return setComments(res.data)
       })
       .catch(err => console.log(err))
+
+      const userID = localStorage.getItem("id");
+      axiosWithAuth()
+        .get(`/api/users/${userID}/favoritecomments`)
+        .then((res) => {
+          return setSavedComments(res.data.userFavoriteComments);
+        })
+        .catch((err) => console.log(err));
     }, [])
 
   const saveComment = (commentID) => {
     axiosWithAuth().put(`/api/comments/${commentID}/favoritecomments`, true);
   };
 
-  const getSavedComments = () => {
-    const userID = localStorage.getItem("id");
-    return axiosWithAuth().get(`/api/users/${userID}/favoritecomments`);
-  };
+  const getSavedComments = () => {};
   return (
     <UserContext.Provider value={user}>
       <LoginContext.Provider value={login}>
         <SignupContext.Provider value={signup}>
           <CommentsContext.Provider value={comments}>
             <SaveCommentContext.Provider value={saveComment}>
-              <GetSavedCommentContext.Provider value={getSavedComments}>
+              <GetSavedCommentContext.Provider value={savedComments}>
                 {children}
               </GetSavedCommentContext.Provider>
             </SaveCommentContext.Provider>

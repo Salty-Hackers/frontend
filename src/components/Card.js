@@ -1,21 +1,18 @@
-//import { axiosWithAuth } from "../utils/axiosWithAuth";
+
 import React, { useEffect, useState } from "react";
 
-// The Card is used to:
-// 1. Hold the rank, user, and comments from various users
-// 2. Give the user the ability to save there favorite comments to their personal profile by selecting the save button
+<<<<<<< HEAD
 
-function Card() {
-
-    const [comments, setComments] = useState([]);
-    const [user, setUser] = useState([]); // when calling the API, we have to get by email because there is not a 'user'
-    const [rank, setRank] = useState([]); // when calling the API, we have to get by negativity because there is not a 'rank'
-
-
-
+=======
+function Card(props) {
+    const {comment} = props
+>>>>>>> 21429a2... info added to cards
     return (
         <div className="card" >
+            <h3 className="cardTitles">Comment: </h3> <br />
+            {comment.comment}<br /><br/>
 
+<<<<<<< HEAD
             <h3 className="cardTitles">Rank: </h3>
             {rank.filter(rankers =>
                 <p className="cardData"> {rankers.negativity}</p>)}
@@ -31,6 +28,10 @@ function Card() {
                 </p>)}
             <br />
             <button className="cardButton" onClick >delete </button>
+=======
+            <h3 className="cardTitles">User: </h3> 
+            {comment.user_id}
+>>>>>>> 21429a2... info added to cards
         </div>
 
 
