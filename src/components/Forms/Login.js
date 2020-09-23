@@ -84,7 +84,7 @@ export default function Login() {
         <div className="form-errors">{formErrors.email}</div>
         <br />
         <label>
-          <p>Password:</p>
+          Password:
           <input
             name="password"
             type="password"
@@ -98,7 +98,7 @@ export default function Login() {
 
         </label>
         
-        <div className="form-errors">{formErrors.password}</div>
+        <div id="form-errors" className="form-errors">{formErrors.password}</div>
           <br />
         <button disabled={disabled} >Submit</button>
 

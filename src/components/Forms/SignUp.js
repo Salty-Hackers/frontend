@@ -92,7 +92,7 @@ function SignUp() {
             onChange={(event) => handleChange(event)}
             maxLength="30"
           />
-          {formErrors.firstName}
+         <div id="form-errors" className="form-errors">   {formErrors.firstName} </div>
         </label>
         <label>
           Enter Last Name:
@@ -103,7 +103,7 @@ function SignUp() {
             onChange={(event) => handleChange(event)}
             maxLength="30"
           />
-          {formErrors.lastName}
+          <div id="form-errors" className="form-errors">  {formErrors.lastName} </div>
         </label>
         <label>
           Email:
@@ -114,7 +114,7 @@ function SignUp() {
             value={user.email}
             maxLength="30"
           />
-          {formErrors.email}
+         <div id="form-errors" className="form-errors">   {formErrors.email} </div>
         </label>
         <label>
           Password:
@@ -125,10 +125,10 @@ function SignUp() {
             value={user.password}
             maxLength="30"
           />
-          {formErrors.password}
+          <div id="form-errors" className="form-errors">  {formErrors.password} </div>
         </label>
         <label>
-          Re-enter Password:
+          Confirm Password:
           <input
             type="password"
             name="confirmPassword"
@@ -136,7 +136,7 @@ function SignUp() {
             value={user.confirmPassword}
             maxLength="30"
           />
-          {formErrors.confirmPassword}
+         <div id="form-errors" className="form-errors"> {formErrors.confirmPassword} </div>
         </label>
         <button disabled={disabled}
           >Submit!</button>
