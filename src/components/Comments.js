@@ -9,7 +9,7 @@ function Comments() {
       <div className="commentHeader">
         <h1>Comments Feed</h1>
       </div>
-      {console.log(getComments)}
+
       <div className="commentContainer">
         {getComments.map((comment) => {
           return <Comment key={comment.id} comment={comment} />;

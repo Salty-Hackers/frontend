@@ -8,8 +8,7 @@ function Comment(props) {
   const saveComment = useSaveComments();
 
   const handleClick = (e) => {
-    console.log(comment)
-    saveComment(comment)
+    saveComment(comment);
   };
 
   return (
