@@ -25,18 +25,18 @@ function UserProfile() {
 
     // need to add mark-up and some styling
     return (
-        <>
-            <div class='dashContainer'>
-                <h1> Welcome to your Favorite Comments </h1>
-                <h5> Here you can view and delete comment cards </h5>
-            </div>
-            <p>User ID {id}</p>
-            {result.map(person =>
-                <div key >
-                    <p> {person.comment} </p>
-                    <p> {person.negativity} </p>
-                </div>)}
-        </>
+      <>
+        <h1>User ID {id}</h1>
+
+        <h5>User Comments</h5>
+        {result.map((person) => (
+          <div>
+            <p> Comment: {person.comment} </p><br/>
+            <p> Salt Level: {person.negativity_score} </p><br/>
+          </div>
+        ))}
+        <br  />
+      </>
     );
 }
 
