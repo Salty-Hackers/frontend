@@ -5,13 +5,13 @@ import UserProfile from "./UserProfile";
 
 //  import { axiosWithAuth } from "../utils/axiosWithAuth";
 // The dashboard is used to:
-// 1. Display the populated Cards
-// 2. Provide user with a drop-down list of commenters they can select from in order to see just their comments populated
-// 3. Give the user access to their profile with a link in the header
-// 4. Allow the user to select Home in order to re-render all cards
+// 1. Display the user saved Cards
+// 2. Allow the user to delete the saved Cards
+
+
 
 function Dashboard() {
-  // need to make axios function to populate the drop-down list or maybe change to a search bar instead ???
+
 
 
   return (
@@ -19,19 +19,14 @@ function Dashboard() {
       <div className="dashHeader">
         <div className="profileLink">
 
-          <Link to="/userprofile">Profile</Link>
-          <Route path="/userprofile" />
+          <Link to="/comments">All Comments</Link>
+          <Route path="/comments" />
 
         </div>
 
-        <h1> Saltiest Hacker </h1>
-        <h5>
-          Find the Hacker News most saltiest comments and save them to your
-          profile. Choose to view all comments and pick your favorites, or get
-          comments by the user of your choice!
-          </h5>
-      </div>
 
+      </div>
+      <UserProfile />
       <Card />
       <Card />
       <Card />
