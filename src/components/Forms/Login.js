@@ -81,7 +81,7 @@ export default function Login() {
           />
 
         </label>
-        <div className="form-errors">{formErrors.email}</div>
+        <div id = "form-errors" className="form-errors">{formErrors.email}</div>
         <br />
         <label>
           Password:
