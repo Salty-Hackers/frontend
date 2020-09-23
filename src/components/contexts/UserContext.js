@@ -40,7 +40,7 @@ export const UserProvider = ({ children }) => {
   const [comments, setComments] = useState([]);
   const [savedComments, setSavedComments] = useState([]);
   let history = useHistory();
-
+  const [updated, setUpdated] = useState(false);
   const login = (email, password) => {
     return axiosWithAuth()
       .post("/api/auth/login", { email, password })
@@ -84,18 +84,22 @@ export const UserProvider = ({ children }) => {
     axiosWithAuth()
       .get(`/api/users/${userID}/favoritecomments`)
       .then((res) => {
+        setUpdated(true);
         return setSavedComments(res.data.userFavoriteComments);
       })
       .catch((err) => console.log(err));
-  }, [userID]);
+  }, [updated]);
 
   const saveComment = (data) => {
     axiosWithAuth()
-    .post(`/api/users/${userID}/favoritecomments/${data.id}`, data);
+      .post(`/api/users/${userID}/favoritecomments/${data.id}`, data)
+      .then(setUpdated(!updated));
   };
 
   const deleteComment = (data) => {
-    axiosWithAuth().delete(`/api/users/${userID}/favoritecomments/${data.id}`);
+    axiosWithAuth()
+      .delete(`/api/users/${userID}/favoritecomments/${data.id}`)
+      .then(setUpdated(!updated));
   };
 
   return (
