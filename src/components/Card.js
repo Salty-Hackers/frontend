@@ -10,6 +10,10 @@ function Card(props) {
       <br />
       <h3 className="cardTitles">User: </h3>
       {comment.user_id}
+      <br />
+      <button className="cardButton" onClick>
+        delete
+      </button>
     </div>
   );
 }
