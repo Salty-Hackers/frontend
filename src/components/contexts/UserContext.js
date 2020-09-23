@@ -7,6 +7,8 @@ const UserContext = React.createContext();
 const LoginContext = React.createContext();
 const SignupContext = React.createContext();
 const CommentsContext = React.createContext();
+const SaveCommentContext = React.createContext();
+const GetSavedCommentContext = React.createContext();
 
 export const useLogin = () => {
   return useContext(LoginContext);
@@ -18,6 +20,14 @@ export const useSignup = () => {
 
 export const useComments = () => {
   return useContext(CommentsContext);
+};
+
+export const useSaveComments = () => {
+  return useContext(SaveCommentContext);
+};
+
+export const useGetSavedCommentContext = () => {
+  return useContext(GetSavedCommentContext);
 };
 
 export const UserProvider = ({ children }) => {
@@ -66,13 +76,24 @@ export const UserProvider = ({ children }) => {
       .catch(err => console.log(err))
     }, [])
 
+  const saveComment = (commentID) => {
+    axiosWithAuth().put(`/api/comments/${commentID}/favoritecomments`, true);
+  };
 
+  const getSavedComments = () => {
+    const userID = localStorage.getItem("id");
+    return axiosWithAuth().get(`/api/users/${userID}/favoritecomments`);
+  };
   return (
     <UserContext.Provider value={user}>
       <LoginContext.Provider value={login}>
         <SignupContext.Provider value={signup}>
           <CommentsContext.Provider value={comments}>
-          {children}
+            <SaveCommentContext.Provider value={saveComment}>
+              <GetSavedCommentContext.Provider value={getSavedComments}>
+                {children}
+              </GetSavedCommentContext.Provider>
+            </SaveCommentContext.Provider>
           </CommentsContext.Provider>
         </SignupContext.Provider>
       </LoginContext.Provider>
