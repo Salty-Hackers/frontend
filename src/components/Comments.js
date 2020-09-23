@@ -6,8 +6,21 @@ function Comments() {
 
   return (
     <div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+      <div className='commentHeader'>
+        <h1> Saltiest Hacker </h1>
+        <h5>
+          Find the Hacker News most saltiest comments in the comment feed below and save them to your
+          profile, or get comments by the user of your choice just by clicking on that Users Id!
+          </h5>
+=======
+>>>>>>> e5234a059fac29bcc5bbdfba4a079917beb5f837
       <div className="commentHeader">
         <h1>Comments Feed</h1>
+>>>>>>> 21429a2... info added to cards
       </div>
       <div className="commentContainer">
         {getComments.map((comment) => {
