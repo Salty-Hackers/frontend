@@ -5,28 +5,25 @@ import * as yup from "yup";
 import schema from "./validate-login.js";
 import { useLogin } from "../contexts/UserContext";
 
-
+const initialUser = {
+  email: "",
+  password: "",
+};
 
 const initialFormErrors = {
   email: "",
   password: "",
 };
 
-
 export default function Login() {
   const login = useLogin();
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [user, setUser] = React.useState(initialUser);
 
   const initialDisabled = true;
 
   const handleSubmit = (event) => {
-    // console.log(`
-    // Email: ${email}
-    // Password: ${password}
-    // `);
     event.preventDefault();
-    login(email, password);
+    login(user.email, user.password);
   };
 
   // Validation - TLTsay
@@ -48,18 +45,10 @@ export default function Login() {
   };
 
   React.useEffect(() => {
-    schema.isValid(email).then((valid) => {
-      setDisabled(false);
+    schema.isValid(user).then((valid) => {
+      setDisabled(!valid);
     });
-  }, [email]);
-
-  React.useEffect(() => {
-    schema.isValid(password).then((valid) => {
-      setDisabled(false);
-    });
-  }, [password]);
-
- 
+  }, [user]);
 
   return (
     <>
@@ -72,43 +61,46 @@ export default function Login() {
           <input
             name="email"
             type="email"
-            value={email}
+            value={user.email}
             onChange={(e) => {
-              validate("email", e.target.value);
-              setEmail(e.target.value);
+              validate(e.target.name, e.target.value);
+              setUser({ ...user, [e.target.name]: e.target.value });
             }}
             required
           />
-
         </label>
-        <div id="form-errors" className="form-errors">{formErrors.email}</div>
+        <div id="form-errors" className="form-errors">
+          {formErrors.email}
+        </div>
         <br />
         <label>
           Password:
           <input
             name="password"
             type="password"
-            value={password}
+            value={user.password}
             onChange={(e) => {
-              validate("password", e.target.value);
-              setPassword(e.target.value);
+              validate(e.target.name, e.target.value);
+              setUser({ ...user, [e.target.name]: e.target.value });
             }}
             required
           />
-
         </label>
-        
-        <div id="form-errors" className="form-errors">{formErrors.password}</div>
-          <br />
-        <button disabled={disabled} >Submit</button>
+
+        <div id="form-errors" className="form-errors">
+          {formErrors.password}
+        </div>
+        <br />
+        <button disabled={disabled}>Submit</button>
 
         <label>
           <p>
             {" "}
-            <br></br> Don't have an account?{" "}
-            <br></br>
+            <br></br> Don't have an account? <br></br>
           </p>
-          <Link id= "login-link" to="/signup">Sign up here!</Link>
+          <Link id="login-link" to="/signup">
+            Sign up here!
+          </Link>
         </label>
       </form>
     </>
