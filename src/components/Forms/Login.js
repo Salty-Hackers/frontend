@@ -81,10 +81,10 @@ export default function Login() {
           />
 
         </label>
-        <div className="form-errors">{formErrors.email}</div>
+        <div id="form-errors" className="form-errors">{formErrors.email}</div>
         <br />
         <label>
-          <p>Password:</p>
+          Password:
           <input
             name="password"
             type="password"
@@ -98,7 +98,7 @@ export default function Login() {
 
         </label>
         
-        <div className="form-errors">{formErrors.password}</div>
+        <div id="form-errors" className="form-errors">{formErrors.password}</div>
           <br />
         <button disabled={disabled} >Submit</button>
 
@@ -106,8 +106,9 @@ export default function Login() {
           <p>
             {" "}
             <br></br> Don't have an account?{" "}
+            <br></br>
           </p>
-          <Link to="/signup">Sign up here!</Link>
+          <Link id= "login-link" to="/signup">Sign up here!</Link>
         </label>
       </form>
     </>
