@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useComments } from "./contexts/UserContext";
 import Comment from "./Comment";
 function Comments() {
