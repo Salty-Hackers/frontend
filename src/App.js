@@ -15,17 +15,14 @@ function App() {
   return (
     <UserProvider>
       <div className="App">
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/signup">
             <SignUp />
           </Route>
-        </nav>
+
         <Switch>
           <PrivateRoute exact path="/" component={Dashboard} />
           <PrivateRoute exact path="/comments" component={Comments} />

@@ -1,38 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "./Card";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import UserProfile from "./UserProfile";
 
-//  import { axiosWithAuth } from "../utils/axiosWithAuth";
-// The dashboard is used to:
-// 1. Display the user saved Cards
-// 2. Allow the user to delete the saved Cards
+import { useGetSavedCommentContext } from "./contexts/UserContext";
 
 
 
 function Dashboard() {
+  const getSavedComments = useGetSavedCommentContext();
 
+  console.log(getSavedComments);
+  // need to make axios function to populate the drop-down list or maybe change to a search bar instead ???
 
 
   return (
     <>
       <div className="dashHeader">
-        <div className="profileLink">
+ 
 
-          <Link to="/comments">All Comments</Link>
-          <Route path="/comments" />
-
-        </div>
-
-
+        <h1> Saltiest Hacker </h1>
+        <h5>
+          Find the Hacker News most saltiest comments and save them to your
+          profile. Choose to view all comments and pick your favorites, or get
+          comments by the user of your choice!
+          </h5>
       </div>
-      <UserProfile />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {getSavedComments.map(comments => {
+        return <Card comment={comments} />
+      })}
     </>
   );
 }
