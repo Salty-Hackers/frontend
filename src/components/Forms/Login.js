@@ -22,10 +22,10 @@ export default function Login() {
   const initialDisabled = true;
 
   const handleSubmit = (event) => {
-    // console.log(`
-    // Email: ${email}
-    // Password: ${password}
-    // `);
+    console.log(`
+    Email: ${user.email}
+    Password: ${user.password}
+    `);
     event.preventDefault();
     login(user.email, user.password);
   };
@@ -33,6 +33,7 @@ export default function Login() {
   // Validation - TLTsay
   const [formErrors, setFormErrors] = React.useState(initialFormErrors);
   const [disabled, setDisabled] = React.useState(initialDisabled);
+  console.log(disabled);
 
   const validate = (name, value) => {
     yup
@@ -49,8 +50,10 @@ export default function Login() {
   };
 
   React.useEffect(() => {
+    console.log("disabled?: ", disabled);
     schema.isValid(user).then((valid) => {
-      setDisabled(false);
+      console.log("should be disabled-true", disabled);
+      setDisabled(!valid);
     });
   }, [user]);
 
@@ -73,7 +76,9 @@ export default function Login() {
             required
           />
         </label>
-        <div id="form-errors" className="form-errors">{formErrors.email}</div>
+        <div id="form-errors" className="form-errors">
+          {formErrors.email}
+        </div>
         <br />
         <label>
           Password:
@@ -98,10 +103,11 @@ export default function Login() {
         <label>
           <p>
             {" "}
-            <br></br> Don't have an account?{" "}
-            <br></br>
+            <br></br> Don't have an account? <br></br>
           </p>
-          <Link id= "login-link" to="/signup">Sign up here!</Link>
+          <Link id="login-link" to="/signup">
+            Sign up here!
+          </Link>
         </label>
       </form>
     </>
