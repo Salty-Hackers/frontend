@@ -9,6 +9,7 @@ const SignupContext = React.createContext();
 const CommentsContext = React.createContext();
 const SaveCommentContext = React.createContext();
 const GetSavedCommentContext = React.createContext();
+const DeleteSavedCommentContext = React.createContext();
 
 export const useLogin = () => {
   return useContext(LoginContext);
@@ -28,6 +29,10 @@ export const useSaveComments = () => {
 
 export const useGetSavedCommentContext = () => {
   return useContext(GetSavedCommentContext);
+};
+
+export const useDeleteSavedComment = () => {
+  return useContext(DeleteSavedCommentContext);
 };
 
 export const UserProvider = ({ children }) => {
@@ -89,6 +94,10 @@ export const UserProvider = ({ children }) => {
     .post(`/api/users/${userID}/favoritecomments/${data.id}`, data);
   };
 
+  const deleteComment = (data) => {
+    axiosWithAuth().delete(`/api/users/${userID}/favoritecomments/${data.id}`);
+  };
+
   return (
     <UserContext.Provider value={user}>
       <LoginContext.Provider value={login}>
@@ -96,7 +105,9 @@ export const UserProvider = ({ children }) => {
           <CommentsContext.Provider value={comments}>
             <SaveCommentContext.Provider value={saveComment}>
               <GetSavedCommentContext.Provider value={savedComments}>
-                {children}
+                <DeleteSavedCommentContext.Provider value={deleteComment}>
+                    {children}
+                </DeleteSavedCommentContext.Provider>
               </GetSavedCommentContext.Provider>
             </SaveCommentContext.Provider>
           </CommentsContext.Provider>

@@ -4,16 +4,15 @@ import Card from "./Card";
 import { useGetSavedCommentContext } from "./contexts/UserContext";
 
 
-
 function Dashboard() {
   const [savedComments, setSavedComments] = useState([]);
   const getSavedComments = useGetSavedCommentContext();
+
   console.log(savedComments);
 
   useEffect(() => {
     setSavedComments(getSavedComments);
   }, [getSavedComments]);
-
 
   return (
     <>
