@@ -32,10 +32,9 @@ export const useGetSavedCommentContext = () => {
 
 export const UserProvider = ({ children }) => {
   let user = { id: "", email: "", firstName: "", lastName: "" };
-  const [comments, setComments] = useState([])
+  const [comments, setComments] = useState([]);
   const [savedComments, setSavedComments] = useState([]);
   let history = useHistory();
-
 
   const login = (email, password) => {
     return axiosWithAuth()
@@ -47,7 +46,7 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("lastName", res.data.user.lastName);
         localStorage.setItem("id", res.data.user.id);
         localStorage.setItem("email", res.data.user.email);
- 
+
         history.push("/");
       })
       .catch((err) => console.log(err));
@@ -68,28 +67,28 @@ export const UserProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-    useEffect(() => {
-      axiosWithAuth()
-      .get('/api/comments')
-      .then(res => {
-        return setComments(res.data)
+  const userID = localStorage.getItem("id");
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/api/comments")
+      .then((res) => {
+        return setComments(res.data);
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
 
-      const userID = localStorage.getItem("id");
-      axiosWithAuth()
-        .get(`/api/users/${userID}/favoritecomments`)
-        .then((res) => {
-          return setSavedComments(res.data.userFavoriteComments);
-        })
-        .catch((err) => console.log(err));
-    }, [])
+    axiosWithAuth()
+      .get(`/api/users/${userID}/favoritecomments`)
+      .then((res) => {
+        return setSavedComments(res.data.userFavoriteComments);
+      })
+      .catch((err) => console.log(err));
+  }, [userID]);
 
-  const saveComment = (commentID) => {
-    axiosWithAuth().put(`/api/comments/${commentID}/favoritecomments`, true);
+  const saveComment = (data) => {
+    axiosWithAuth()
+    .post(`/api/users/${userID}/favoritecomments/${data.id}`, data);
   };
 
-  const getSavedComments = () => {};
   return (
     <UserContext.Provider value={user}>
       <LoginContext.Provider value={login}>

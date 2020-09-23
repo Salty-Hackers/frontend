@@ -2,6 +2,8 @@ import React from "react";
 
 function Card(props) {
   const { comment } = props;
+
+
   return (
     <div className="card">
       <h3 className="cardTitles">Comment: </h3> <br />
@@ -11,7 +13,7 @@ function Card(props) {
       <h3 className="cardTitles">User: </h3>
       {comment.user_id}
       <br />
-      <button className="cardButton" onClick>
+      <button className="cardButton">
         delete
       </button>
     </div>
