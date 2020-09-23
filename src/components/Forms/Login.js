@@ -22,10 +22,6 @@ export default function Login() {
   const initialDisabled = true;
 
   const handleSubmit = (event) => {
-    console.log(`
-    Email: ${user.email}
-    Password: ${user.password}
-    `);
     event.preventDefault();
     login(user.email, user.password);
   };
@@ -33,7 +29,6 @@ export default function Login() {
   // Validation - TLTsay
   const [formErrors, setFormErrors] = React.useState(initialFormErrors);
   const [disabled, setDisabled] = React.useState(initialDisabled);
-  console.log(disabled);
 
   const validate = (name, value) => {
     yup
@@ -50,9 +45,7 @@ export default function Login() {
   };
 
   React.useEffect(() => {
-    console.log("disabled?: ", disabled);
     schema.isValid(user).then((valid) => {
-      console.log("should be disabled-true", disabled);
       setDisabled(!valid);
     });
   }, [user]);
