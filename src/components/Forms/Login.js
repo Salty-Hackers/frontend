@@ -68,7 +68,7 @@ export default function Login() {
   }, [user]);
 
   return (
-    <div>
+    <div id="login">
       <form onSubmit={handleSubmit} id="loginform">
 
         <h1>Log In</h1>
