@@ -70,7 +70,7 @@ export default function Login() {
   return (
     <>
       <form onSubmit={handleSubmit} id="loginform">
-       
+
         <h1>Log In</h1>
 
         <label>
@@ -110,7 +110,7 @@ export default function Login() {
         </div>
         <br />
         <button disabled={disabled}>Submit</button>
-              <br />
+        <br />
         <label>
           <p>
             {" "}
@@ -121,14 +121,14 @@ export default function Login() {
           </Link>
         </label>
         <br></br>
-      
+
       </form>
       <article>
-        
+
         <p>{insult}</p>
-        </article>
-        <br></br>
-        ...just in case you needed a little extra salt in your day...
+      </article>
+      <br></br>
+       <p id="insult">...just in case you needed a little extra salt in your day...</p>
     </>
   );
 }

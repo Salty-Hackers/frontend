@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500&family=Nunito:ital@1&display=swap');
 
+
+/*login form class applies css to both login and sign up cards*/
+
 #loginform{
   
   display: flex;
@@ -7,34 +10,32 @@
   align-items: center;
   background-color: rgba(255,255,255,.1);
   background: linear-gradient(90deg, #fafafa 20%,    whitesmoke 100%);
-  width: 90%;
+  width: 60%;
   height: 70%;
-  margin: 150px auto;
-  /* background-color:#fcfae8; */
+  margin: 100px auto;
   border-radius: 10px;
-  padding: 6rem;
+  padding: 4rem;
   text-align: center;
   color: midnightblue;
   font-family: 'Courier New', Courier, monospace;
   font-size: 2rem;
   box-shadow: 0 35px 46px rgba(0,0,0,0.30), 0 18px 25px rgba(0,0,0,0.22);
   transition: 0.3s;
-  /* ++ */
   border: 12px solid #fff; 
-  /* text-transform: uppercase; */
+  
 }
-  /* text-shadow: 1px 1px 2px white , 0 0 5px blue, 0 0 2px darkblue;
-} */
+
 
 #loginform:hover {
   box-shadow: 0 8px 18px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   transition: opacity 0.85s ease-in-out;
 }
 
+/*label styles each entry section*/
 
 label{
   flex-wrap: wrap;
-  width: 90%;
+  width: 80%;
   box-sizing: border-box;
   border: none;
   text-align:center;
@@ -44,6 +45,7 @@ label{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   opacity: .9;
 }
+/*input styles the specific box whene user types input*/
 
 input:focus{
    box-shadow: inset 0px -3px 0px 0px lightcoral;
@@ -51,11 +53,6 @@ input:focus{
    margin-right: 2rem;
 }
 
-h1{
-  text-shadow: 1px .5px .5px lightgray, 0 0 4px white;
-  font-family:  'Nunito', sans-serif;
-  
-}
 
  input{
   width: 100%;
@@ -72,7 +69,15 @@ h1{
   box-shadow: inset 0px -3px 0px 0px rgba(187,187,187,0.2);
 }
 
+/*h1 applies to the header "Log In" and "Sign up"*/
+h1{
+  text-shadow: 1px .5px .5px lightgray, 0 0 4px white;
+  font-family:  'Nunito', sans-serif;
+  
+}
 
+
+/*applies to buttons on both forms*/
 
 button{
   border-radius: 6px;
@@ -128,7 +133,13 @@ h1{
 
 article {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
- 
-  font-family: 'Grenze Gotisch', cursive;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin:.5rem;
+ font-family: 'Grenze Gotisch', cursive;
+}
+
+#insult {
+  margin-top: 1rem;
+  text-align: center;
 }
