@@ -71,20 +71,23 @@ function SignUp() {
   
 
   return (
-    <div className="logIn">
+    <>
       <form onSubmit={(event) => handleSubmit(event)} id="loginform">
+
         <h1>Sign Up</h1>
 
         <label>
           <p> Already have an account? </p>
-          <br></br>
+          <br />
           <Link id="login-link" to="/login">Login here!</Link>
-          <br></br>
-          <br></br>
+         <br />
+          <br />
         </label>
+        <br />
 
         <label>
           <p> Enter First Name:</p>
+          <br />
           <input
             type="text"
             name="firstName"
@@ -92,10 +95,12 @@ function SignUp() {
             onChange={(event) => handleChange(event)}
             maxLength="30"
           />
+          
          <div id="form-errors" className="form-errors">   {formErrors.firstName} </div>
-        </label>
+         </label>
+        
         <label>
-          Enter Last Name:
+         <p> Enter Last Name: </p>
           <input
             type="text"
             name="lastName"
@@ -106,7 +111,7 @@ function SignUp() {
           <div id="form-errors" className="form-errors">  {formErrors.lastName} </div>
         </label>
         <label>
-          Email:
+        <p>  Email: </p>
           <input
             type="text"
             name="email"
@@ -117,7 +122,7 @@ function SignUp() {
          <div id="form-errors" className="form-errors">   {formErrors.email} </div>
         </label>
         <label>
-          Password:
+         <p> Password:</p>
           <input
             type="password"
             name="password"
@@ -128,7 +133,7 @@ function SignUp() {
           <div id="form-errors" className="form-errors">  {formErrors.password} </div>
         </label>
         <label>
-          Confirm Password:
+        <p>  Confirm Password:</p>
           <input
             type="password"
             name="confirmPassword"
@@ -141,7 +146,7 @@ function SignUp() {
         <button disabled={disabled}
           >Submit!</button>
       </form>
-    </div>
+    </>
   );
 }
 
