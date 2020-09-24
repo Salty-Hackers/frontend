@@ -45,7 +45,6 @@ export const UserProvider = ({ children }) => {
     return axiosWithAuth()
       .post("/api/auth/login", { email, password })
       .then((res) => {
-        console.log(res);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("firstName", res.data.user.firstName);
         localStorage.setItem("lastName", res.data.user.lastName);
@@ -59,7 +58,7 @@ export const UserProvider = ({ children }) => {
 
   const signup = (firstName, lastName, email, password) => {
     return axiosWithAuth()
-      .post("/api/auth/singup", {
+      .post("/api/auth/signup", {
         first_name: firstName,
         last_name: lastName,
         email,
@@ -77,6 +76,7 @@ export const UserProvider = ({ children }) => {
     axiosWithAuth()
       .get("/api/comments")
       .then((res) => {
+        setUpdated(true);
         return setComments(res.data);
       })
       .catch((err) => console.log(err));

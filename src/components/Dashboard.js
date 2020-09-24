@@ -8,12 +8,12 @@ function Dashboard() {
   const [savedComments, setSavedComments] = useState([]);
   const getSavedComments = useGetSavedCommentContext();
 
-  console.log(savedComments);
+
 
   useEffect(() => {
     setSavedComments(getSavedComments);
   }, [getSavedComments]);
-  console.log(savedComments);
+
   return (
     <>
       <div className="dashHeader">

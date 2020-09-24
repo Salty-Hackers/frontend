@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useComments } from "./contexts/UserContext";
 import Comment from "./Comment";
 function Comments() {
   const getComments = useComments();
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    setComments(getComments);
+  }, [getComments]);
 
   return (
     <div>
@@ -11,7 +16,7 @@ function Comments() {
       </div>
 
       <div className="commentContainer">
-        {getComments.map((comment) => {
+        {comments.map((comment) => {
           return <Comment key={comment.id} comment={comment} />;
         })}
       </div>
