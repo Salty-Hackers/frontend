@@ -26,6 +26,7 @@
 }
 
 
+
 #loginform:hover {
   box-shadow: 0 8px 18px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   transition: opacity 0.85s ease-in-out;
@@ -48,7 +49,7 @@ label{
 /*input styles the specific box whene user types input*/
 
 input:focus{
-   box-shadow: inset 0px -3px 0px 0px lightcoral;
+   box-shadow: inset 0px -3px 0px 0px midnightblue;
    outline: none;
    margin-right: 2rem;
 }
@@ -81,7 +82,7 @@ h1{
 
 button{
   border-radius: 6px;
-
+  border: none;
   align-self: center;
   width: 80%;
   height: 40px;
@@ -105,7 +106,6 @@ button:disabled {
 
 button:hover{
   opacity: 0.6;
-  border: .5px solid midnightblue;
   background: linear-gradient(90deg,  darkcyan 0%,  midnightblue  100%);
 }
 
@@ -115,6 +115,10 @@ h1{
   margin-bottom: 2.3rem;
 
   
+}
+
+p{
+  margin-bottom: 1rem;
 }
 #form-errors {
   font-size: .8rem;
@@ -130,16 +134,28 @@ h1{
 #login-link:hover{
   color: red;
 }
-
+/*styling for pirate insult api*/
 article {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 3rem;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-top: 4rem;
   text-align: center;
   margin:.5rem;
  font-family: 'Grenze Gotisch', cursive;
 }
 
 #insult {
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-self: center;
+}
+
+#loginform {
+  max-width: 1080px; 
+    margin: 0 auto;
 }

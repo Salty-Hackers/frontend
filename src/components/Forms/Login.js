@@ -68,7 +68,7 @@ export default function Login() {
   }, [user]);
 
   return (
-    <>
+    <div>
       <form onSubmit={handleSubmit} id="loginform">
 
         <h1>Log In</h1>
@@ -123,12 +123,13 @@ export default function Login() {
         <br></br>
 
       </form>
+      <br/>
       <article>
 
         <p>{insult}</p>
       </article>
       <br></br>
        <p id="insult">...just in case you needed a little extra salt in your day...</p>
-    </>
+    </div>
   );
 }
