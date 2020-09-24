@@ -19,13 +19,21 @@ function Comment(props) {
       <br />
       Salt Level: {comment.negativity_score}
       <br />
-      User: <Link to={`/user/${comment.user_id}`}>{comment.user_id}</Link><br/>
+      User: <Link to={`/user/${comment.user_id}`}>{comment.user_id}</Link>
+      <br />
       <button className="cardButton" onClick={handleClick}>
         Save
       </button>
+      
+      <br/><br/>
+      <a
+        className="twitter-share-button"
+        href={`https://twitter.com/intent/tweet?text=${comment.comment}`}
+      >
+        Tweet
+      </a>
       <hr />
       <br />
-
     </>
   );
 }
