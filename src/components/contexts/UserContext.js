@@ -50,7 +50,7 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("lastName", res.data.user.lastName);
         localStorage.setItem("id", res.data.user.id);
         localStorage.setItem("email", res.data.user.email);
-
+        setUpdated(true)
         history.push("/");
       })
       .catch((err) => console.log(err));
@@ -73,24 +73,26 @@ export const UserProvider = ({ children }) => {
 
   const userID = localStorage.getItem("id");
   useEffect(() => {
-    axiosWithAuth()
-      .get("/api/comments")
-      .then((res) => {
-        setUpdated(true);
-        return setComments(res.data);
-      })
-      .catch((err) => console.log(err));
+    if (userID) {
+        axiosWithAuth()
+          .get("/api/comments")
+          .then((res) => {
+            setUpdated(true);
+            return setComments(res.data);
+          })
+          .catch((err) => console.log(err));
 
-    axiosWithAuth()
-      .get(`/api/users/${userID}/favoritecomments`)
-      .then((res) => {
-        setUpdated(true);
-        return setSavedComments(res.data.userFavoriteComments);
-      })
-      .catch((err) => {
-        setUpdated(true);
-        return setSavedComments(err.response.data);
-      });
+        axiosWithAuth()
+          .get(`/api/users/${userID}/favoritecomments`)
+          .then((res) => {
+            setUpdated(true);
+            return setSavedComments(res.data.userFavoriteComments);
+          })
+          .catch((err) => {
+            setUpdated(true);
+            return setSavedComments(err.response.data);
+          });
+    }
   }, [updated]);
 
   const saveComment = (data) => {
