@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Form.css";
 import * as yup from "yup";
 import schema from "./validate-login.js";
 import { useLogin } from "../contexts/UserContext";
+import axios from "axios";
 
 const initialUser = {
   email: "",
@@ -18,13 +19,29 @@ const initialFormErrors = {
 export default function Login() {
   const login = useLogin();
   const [user, setUser] = React.useState(initialUser);
-
   const initialDisabled = true;
-
   const handleSubmit = (event) => {
     event.preventDefault();
     login(user.email, user.password);
   };
+
+  // Insult - Pair programmed
+  const [insult, setInsult] = React.useState(
+    "Fascinating story, in what chapter do you shut the fuck up?"
+  );
+  React.useEffect(() => {
+    axios
+      .get(
+        `https://api.fungenerators.com/taunt/generate?category=pirate-insult
+      `
+      )
+      .then((res) => {
+        setInsult(res.data.contents.taunts);
+      })
+      .catch((err) => {
+        debugger;
+      });
+  }, []);
 
   // Validation - TLTsay
   const [formErrors, setFormErrors] = React.useState(initialFormErrors);
@@ -53,6 +70,8 @@ export default function Login() {
   return (
     <>
       <form onSubmit={handleSubmit} id="loginform">
+        <p>Your Daily Insult: {insult}</p>
+        <br></br>
         <h1>Log In</h1>
 
         <label>
