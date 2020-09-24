@@ -32,7 +32,7 @@ export default function Login() {
   React.useEffect(() => {
     axios
       .get(
-        `https://api.fungenerators.com/taunt/generate?category=pirate-insult
+        `https://api.fungenerators.com/taunt/generate?category=pirate-insult&api_key=xrMLQe6AhAqMEcYPlgHh6QeF
       `
       )
       .then((res) => {
@@ -70,7 +70,7 @@ export default function Login() {
   return (
     <>
       <form onSubmit={handleSubmit} id="loginform">
-        <p>Your Daily Insult: {insult}</p>
+       
         <br></br>
         <h1>Log In</h1>
 
@@ -121,7 +121,15 @@ export default function Login() {
             Sign up here!
           </Link>
         </label>
+        <br></br>
+      
       </form>
+      <article>
+        
+        <p>{insult}</p>
+        </article>
+        <br></br>
+        ...just in case you needed a little extra salt in your day...
     </>
   );
 }
