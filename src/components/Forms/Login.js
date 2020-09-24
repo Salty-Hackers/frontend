@@ -71,7 +71,6 @@ export default function Login() {
     <>
       <form onSubmit={handleSubmit} id="loginform">
        
-        <br></br>
         <h1>Log In</h1>
 
         <label>
@@ -111,7 +110,7 @@ export default function Login() {
         </div>
         <br />
         <button disabled={disabled}>Submit</button>
-
+              <br />
         <label>
           <p>
             {" "}
