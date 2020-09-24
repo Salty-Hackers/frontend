@@ -48,7 +48,7 @@ label{
 /*input styles the specific box whene user types input*/
 
 input:focus{
-   box-shadow: inset 0px -3px 0px 0px lightcoral;
+   box-shadow: inset 0px -3px 0px 0px midnightblue;
    outline: none;
    margin-right: 2rem;
 }
@@ -81,7 +81,7 @@ h1{
 
 button{
   border-radius: 6px;
-
+  border: none;
   align-self: center;
   width: 80%;
   height: 40px;
@@ -105,7 +105,7 @@ button:disabled {
 
 button:hover{
   opacity: 0.6;
-  border: .5px solid midnightblue;
+  
   background: linear-gradient(90deg,  darkcyan 0%,  midnightblue  100%);
 }
 
@@ -115,6 +115,10 @@ h1{
   margin-bottom: 2.3rem;
 
   
+}
+
+p{
+  margin-bottom: .5rem;
 }
 #form-errors {
   font-size: .8rem;
@@ -130,7 +134,7 @@ h1{
 #login-link:hover{
   color: red;
 }
-
+/*styling for pirate insult api*/
 article {
   font-size: 2.5rem;
   margin-bottom: 1rem;
