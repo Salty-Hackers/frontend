@@ -26,6 +26,7 @@
 }
 
 
+
 #loginform:hover {
   box-shadow: 0 8px 18px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   transition: opacity 0.85s ease-in-out;
@@ -105,7 +106,6 @@ button:disabled {
 
 button:hover{
   opacity: 0.6;
-  
   background: linear-gradient(90deg,  darkcyan 0%,  midnightblue  100%);
 }
 
@@ -118,7 +118,7 @@ h1{
 }
 
 p{
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 }
 #form-errors {
   font-size: .8rem;
@@ -136,14 +136,26 @@ p{
 }
 /*styling for pirate insult api*/
 article {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 3rem;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-top: 4rem;
   text-align: center;
   margin:.5rem;
  font-family: 'Grenze Gotisch', cursive;
 }
 
 #insult {
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-self: center;
+}
+
+#loginform {
+  max-width: 1080px; 
+    margin: 0 auto;
 }
