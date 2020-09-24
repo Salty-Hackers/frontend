@@ -87,7 +87,10 @@ export const UserProvider = ({ children }) => {
         setUpdated(true);
         return setSavedComments(res.data.userFavoriteComments);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setUpdated(true);
+        return setSavedComments(err.response.data);
+      });
   }, [updated]);
 
   const saveComment = (data) => {

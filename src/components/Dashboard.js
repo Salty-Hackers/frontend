@@ -13,7 +13,7 @@ function Dashboard() {
   useEffect(() => {
     setSavedComments(getSavedComments);
   }, [getSavedComments]);
-
+  console.log(savedComments);
   return (
     <>
       <div className="dashHeader">
@@ -24,9 +24,12 @@ function Dashboard() {
           comments by the user of your choice!
         </h5>
       </div>
-      {savedComments.map((comments) => {
+
+      {savedComments.message ? "No Saved Comments" :
+      savedComments.map((comments) => {
         return <Card key={comments.id} comment={comments} />;
-      })}
+      })
+      }
     </>
   );
 }
