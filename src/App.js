@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Comments from "./components/Comments";
 import UserProfile from "./components/UserProfile";
 import NavBar from "./components/NavBar";
+import Logout from "./components/Logout";
 function App() {
   return (
     <UserProvider>
@@ -27,6 +28,7 @@ function App() {
           <PrivateRoute exact path="/" component={Dashboard} />
           <PrivateRoute exact path="/comments" component={Comments} />
           <PrivateRoute exact path="/user/:id" component={UserProfile} />
+          <PrivateRoute exact path="/logout" component={Logout} />
         </Switch>
       </div>
     </UserProvider>
