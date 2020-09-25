@@ -71,8 +71,9 @@ function SignUp() {
   
 
   return (
-    <>
-      <form onSubmit={(event) => handleSubmit(event)} id="loginform">
+    
+    <div id="login">
+      <form onSubmit={(event) => handleSubmit(event)} id="signup">
 
         <h1>Sign Up</h1>
 
@@ -86,7 +87,7 @@ function SignUp() {
         <br />
 
         <label>
-          <p> Enter First Name:</p>
+           Enter First Name:
           <br />
           <input
             type="text"
@@ -95,12 +96,13 @@ function SignUp() {
             onChange={(event) => handleChange(event)}
             maxLength="30"
           />
-          
+           </label>
          <div id="form-errors" className="form-errors">   {formErrors.firstName} </div>
-         </label>
+        
+         <br />
         
         <label>
-         <p> Enter Last Name: </p>
+          Enter Last Name:
           <input
             type="text"
             name="lastName"
@@ -108,10 +110,13 @@ function SignUp() {
             onChange={(event) => handleChange(event)}
             maxLength="30"
           />
+             </label>
           <div id="form-errors" className="form-errors">  {formErrors.lastName} </div>
-        </label>
+     
+
+        <br />
         <label>
-        <p>  Email: </p>
+         Email:
           <input
             type="text"
             name="email"
@@ -119,10 +124,13 @@ function SignUp() {
             value={user.email}
             maxLength="30"
           />
+            </label>
          <div id="form-errors" className="form-errors">   {formErrors.email} </div>
-        </label>
+      
+
+        <br />
         <label>
-         <p> Password:</p>
+        Password:
           <input
             type="password"
             name="password"
@@ -130,10 +138,12 @@ function SignUp() {
             value={user.password}
             maxLength="30"
           />
+               </label>
           <div id="form-errors" className="form-errors">  {formErrors.password} </div>
-        </label>
+          <br />
+   
         <label>
-        <p>  Confirm Password:</p>
+          Confirm Password:
           <input
             type="password"
             name="confirmPassword"
@@ -141,12 +151,15 @@ function SignUp() {
             value={user.confirmPassword}
             maxLength="30"
           />
+             </label>
          <div id="form-errors" className="form-errors"> {formErrors.confirmPassword} </div>
-        </label>
+     
         <button disabled={disabled}
           >Submit!</button>
       </form>
-    </>
+      <br></br>
+      </div>
+    
   );
 }
 

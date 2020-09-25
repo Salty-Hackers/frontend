@@ -74,6 +74,7 @@ export default function Login() {
         <h1>Log In</h1>
 
         <label>
+
           <p>Email:</p>
           <br />
           <input
@@ -87,10 +88,13 @@ export default function Login() {
             required
           />
         </label>
+
         <div id="form-errors" className="form-errors">
           {formErrors.email}
         </div>
+
         <br />
+
         <label>
           Password:
           <input
@@ -110,7 +114,11 @@ export default function Login() {
         </div>
         <br />
         <button disabled={disabled}>Submit</button>
-        <br />
+
+
+
+      {/* Link to Login Below */}
+
         <label>
           <p>
             {" "}
@@ -120,16 +128,23 @@ export default function Login() {
             Sign up here!
           </Link>
         </label>
-        <br></br>
-
       </form>
-      <br/>
+
+
+      <br />
+      <br />
+
+    {/* Pirate API displayed below */}
+
       <article>
 
         <p>{insult}</p>
       </article>
+
       <br></br>
-       <p id="insult">...just in case you needed a little extra salt in your day...</p>
+
+
+      <p id="insult">...just in case you needed a little extra salt in your day...</p>
     </div>
   );
 }

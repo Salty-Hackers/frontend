@@ -10,11 +10,11 @@
   align-items: center;
   background-color: rgba(255,255,255,.1);
   background: linear-gradient(90deg, #fafafa 20%,    whitesmoke 100%);
-  width: 60%;
-  height: 70%;
+  width: 30rem;
+  height: 100%;
   margin: 100px auto;
   border-radius: 10px;
-  padding: 4rem;
+  padding: 1rem;
   margin-top: 3rem;
   text-align: center;
   color: midnightblue;
@@ -37,7 +37,8 @@
 
 label{
   flex-wrap: wrap;
-  width: 80%;
+  margin-top: 1rem;
+  width: 100%;
   box-sizing: border-box;
   border: none;
   text-align:center;
@@ -59,10 +60,10 @@ input:focus{
  input{
   width: 100%;
   align-items: center;
-  margin: .8rem;
+  /* margin: .8rem; */
   margin-right: .4;
-  margin-left: .4;
-  padding-bottom: .5rem;
+  margin-left: 1.4;
+  padding-bottom: 1rem;
   color:midnightblue;
   font-family: 'Nunito', sans-serif;
   transition: box-shadow 0.2s ease-in;
@@ -88,7 +89,7 @@ button{
   width: 80%;
   height: 40px;
   font-size: 1rem;
-  margin-top: 1.4rem;
+  margin-top: 2.4rem;
   color: white;
   font-weight: 700;
   background:darkcyan;
@@ -168,3 +169,41 @@ article {
   margin-top: 8rem;
 
 }
+
+
+#signup{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255,255,255,.1);
+  background: linear-gradient(90deg, #fafafa 20%,    whitesmoke 100%);
+  width: 30rem;
+  height: 100%;
+  margin: 100px auto;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2.0rem;
+  text-align: center;
+  color: midnightblue;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  box-shadow: 0 35px 46px rgba(0,0,0,0.30), 0 18px 25px rgba(0,0,0,0.22);
+  transition: 0.3s;
+  border: 12px solid #fff; 
+  
+}
+
+
+  @media screen and (max-width: 600px) {
+    #signup{
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
+      margin: 2rem;
+      width: 20rem;
+    }
+    #loginform{
+      width: 20rem;
+    }
+
+  }
